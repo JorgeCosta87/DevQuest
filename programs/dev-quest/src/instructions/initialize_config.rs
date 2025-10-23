@@ -22,11 +22,10 @@ impl<'info> InitializeConfig<'info> {
         self.config.set_inner(Config {
             admin: self.admin.key(),
             task_counter: 0,
-            points_per_task: 100,
             bump: bumps.config,
         });
 
-        msg!("Config initialized. Admin: {}", self.admin.key);
+
 
         Ok(())
     }
