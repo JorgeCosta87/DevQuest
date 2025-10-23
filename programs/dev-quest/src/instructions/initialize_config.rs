@@ -25,8 +25,6 @@ impl<'info> InitializeConfig<'info> {
             bump: bumps.config,
         });
 
-
-
         Ok(())
     }
 }
