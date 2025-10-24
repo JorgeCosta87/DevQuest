@@ -20,7 +20,9 @@ describe("dev-quest", () => {
   const userAccountPDA = anchor.web3.PublicKey.findProgramAddressSync([Buffer.from("user"), provider.wallet.publicKey.toBuffer()], program.programId)[0];
   
   const taskId = new BN(0);
+  const taskId1 = new BN(1);
   const taskPDA = anchor.web3.PublicKey.findProgramAddressSync([Buffer.from("task"),  Buffer.from(taskId.toArrayLike(Buffer, "le", 8))], program.programId)[0];
+  const taskPDA1 = anchor.web3.PublicKey.findProgramAddressSync([Buffer.from("task"),  Buffer.from(taskId1.toArrayLike(Buffer, "le", 8))], program.programId)[0];
   const taskSubmissionPDA = anchor.web3.PublicKey.findProgramAddressSync([Buffer.from("submission"), provider.wallet.publicKey.toBuffer(), Buffer.from(taskId.toArrayLike(Buffer, "le", 8))], program.programId)[0];
 
   it("Initializes config account", async () => {
@@ -91,6 +93,7 @@ describe("dev-quest", () => {
     );
 
     console.log("Task created: ", tx);
+    console.log("First Task id: ", createdTask.taskId.toNumber())
 
     expect(createdTask.taskId.toNumber()).to.equal(0);
     expect(createdTask.title).to.equal(title);
@@ -98,7 +101,32 @@ describe("dev-quest", () => {
     expect(createdTask.dificulty).to.equal(dificulty);
     expect(createdTask.pointsReward).to.equal(points_reward);
     expect(createdTask.isActive).to.equal(isActive);
+  })
 
+  it("Create second Task, the task id is incremented", async () => {
+    const tx = await program.methods
+    .createTask(title, description, dificulty, points_reward, isActive)
+    .accountsPartial({
+        admin: adminPubKey,
+        config: configPDA,
+        task: taskPDA1,
+        systemProgram: anchor.web3.SystemProgram.programId,
+    })
+    .rpc();
+
+    const createdTask = await program.account.task.fetch(
+      taskPDA1
+    );
+
+    console.log("Task created: ", tx);
+    console.log("Second Task id: ", createdTask.taskId.toNumber())
+
+    expect(createdTask.taskId.toNumber()).to.equal(1);
+    expect(createdTask.title).to.equal(title);
+    expect(createdTask.description).to.equal(description);
+    expect(createdTask.dificulty).to.equal(dificulty);
+    expect(createdTask.pointsReward).to.equal(points_reward);
+    expect(createdTask.isActive).to.equal(isActive);
 
   })
 
