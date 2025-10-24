@@ -1,6 +1,6 @@
-# DevQuest - Solana Task Management Platform
+# DevQuest - Gamified Developer Platform
 
-A decentralized task management dApp built on Solana where developers complete tasks, earn points, and showcase their work.
+A decentralized, fully on-chain gamified dApp built on Solana where developers complete tasks, earn points, and showcase their work.
 
 ## Overview
 
