@@ -2,14 +2,27 @@ use anchor_lang::error_code;
 
 #[error_code]
 pub enum ErrorCode {
-    #[msg("Title to long")]
+    #[msg("Invalid name")]
+    InvalidName,
+    #[msg("Invalid project name")]
+    InvalidProjectName,
+    #[msg("Title to long or to short")]
     TitleTooLongOrTooShort,
     #[msg("Description to long")]
     DescriptionTooLong,
-    #[msg("invalid reward points")]
+    #[msg("Github username to long")]
+    GitHubUsernameTooLong,
+    #[msg("Invalid reward points")]
     InvalidPoints,
-    #[msg("invalid repo url")]
-    InvalidRepoUrl,
-    #[msg("invalid dificulty")]
+    #[msg("Invalid repo url")]
+    InvalidRepoName,
+    #[msg("Invalid dificulty")]
     InvalidDificulty,
+    #[msg("Invalid website url")]
+    InvalidWebsiteUrl,
+    #[msg("Too many projects")]
+    TooManyProjects,
+    #[msg("Bio to long")]
+    BioTooLong,
+    
 }

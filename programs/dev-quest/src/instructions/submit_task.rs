@@ -24,7 +24,11 @@ pub struct SubmitTask<'info> {
     #[account(
         init,
         payer = user,
-        seeds = [b"submission".as_ref(), user.key().as_ref(), task_id.to_le_bytes().as_ref()],
+        seeds = [
+            b"submission".as_ref(),
+            user.key().as_ref(),
+            task_id.to_le_bytes().as_ref()
+        ],
         bump,
         space = 8 + TaskSubmission::INIT_SPACE,
     )]
@@ -36,18 +40,18 @@ impl<'info> SubmitTask<'info> {
     pub fn submit_task(
         &mut self,
         task_id: u64,
-        repo_url: String,
+        repo_name: String,
         bumps: &SubmitTaskBumps,
     ) -> Result<()> {
         require!(
-            repo_url.len() > 0 && repo_url.len() <= 200,
-            ErrorCode::InvalidRepoUrl
+            repo_name.len() > 0 && repo_name.len() <= 100,
+            ErrorCode::InvalidRepoName
         );
 
         self.task_submission.set_inner(TaskSubmission {
             user: self.user.key(),
             task_id: task_id,
-            repo_url: repo_url,
+            repo_name,
             submitted_at: Clock::get()?.unix_timestamp,
             bump: bumps.task_submission,
         });

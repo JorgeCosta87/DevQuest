@@ -6,7 +6,7 @@ pub struct Task {
     pub task_id: u64,
     #[max_len(64)]
     pub title: String,
-    #[max_len(300)]
+    #[max_len(250)]
     pub description: String,
     #[max_len(64)]
     pub dificulty: String,
