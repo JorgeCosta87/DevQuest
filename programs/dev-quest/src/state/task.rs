@@ -8,6 +8,8 @@ pub struct Task {
     pub title: String,
     #[max_len(300)]
     pub description: String,
+    #[max_len(64)]
+    pub dificulty: String,
     pub points_reward: u32,
     pub is_active: bool,
     pub bump: u8,
