@@ -32,6 +32,7 @@ impl<'info> CreateTask<'info> {
         &mut self,
         tittle: String,
         description: String,
+        dificulty: String,
         points_reward: u32,
         is_active: bool,
         bumps: &CreateTaskBumps,
@@ -41,12 +42,14 @@ impl<'info> CreateTask<'info> {
             ErrorCode::TitleTooLongOrTooShort
         );
         require!(description.len() <= 300, ErrorCode::DescriptionTooLong);
+        require!(dificulty.len() <= 64, ErrorCode::InvalidDificulty);
         require!(points_reward > 0, ErrorCode::InvalidPoints);
 
         self.task.set_inner(Task {
             task_id: self.config.task_counter,
             title: tittle,
             description: description,
+            dificulty: dificulty,
             points_reward: points_reward,
             is_active: is_active,
             bump: bumps.task,

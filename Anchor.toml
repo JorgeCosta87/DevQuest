@@ -6,7 +6,10 @@ resolution = true
 skip-lint = false
 
 [programs.localnet]
-dev_quest = "82g3uXx38QDULhTHLqRq24A9ZjM38cFjzYJAY8dhVPrf"
+dev_quest = "G6kyX8C369qABor4ZVXDFXneZw9jqDpbfB79imLgEGfA"
+
+[programs.devnet]
+dev_quest = "G6kyX8C369qABor4ZVXDFXneZw9jqDpbfB79imLgEGfA"
 
 [registry]
 url = "https://api.apr.dev"

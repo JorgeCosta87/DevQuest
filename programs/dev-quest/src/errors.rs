@@ -10,4 +10,6 @@ pub enum ErrorCode {
     InvalidPoints,
     #[msg("invalid repo url")]
     InvalidRepoUrl,
+    #[msg("invalid dificulty")]
+    InvalidDificulty,
 }

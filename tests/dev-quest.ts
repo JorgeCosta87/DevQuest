@@ -41,9 +41,13 @@ describe("dev-quest", () => {
     expect(config.taskCounter.toNumber()).to.equal(0);
   });
 
+  const name = "Costa"
+  const bio = "A vida Costa!"
+  const githubUsername = "JorgeCosta87"
+
   it("Initializes user account", async () => {
     const tx = await program.methods
-      .initializeUser()
+      .initializeUser(name, bio, githubUsername)
       .accountsPartial({
         user: provider.wallet.publicKey,
         userAccount: userAccountPDA,
@@ -58,21 +62,22 @@ describe("dev-quest", () => {
     );
 
     expect(userAccount.totalPoints.toNumber()).to.equal(0);
-    expect(userAccount.name).to.equal("");
-    expect(userAccount.bio).to.equal("");
-    expect(userAccount.githubUsername).to.equal("");
+    expect(userAccount.name).to.equal(name);
+    expect(userAccount.bio).to.equal(bio);
+    expect(userAccount.githubUsername).to.equal(githubUsername);
   });
 
   const title = "Task 1";
   const description = "Turbine Week 1";
   const points_reward = 64;
   const isActive = true;
+  const dificulty = "Hard";
 
 
 
   it("Create Task", async () => {
     const tx = await program.methods
-    .createTask(title, description, points_reward, isActive)
+    .createTask(title, description, dificulty, points_reward, isActive)
     .accountsPartial({
         admin: adminPubKey,
         config: configPDA,
@@ -90,6 +95,7 @@ describe("dev-quest", () => {
     expect(createdTask.taskId.toNumber()).to.equal(0);
     expect(createdTask.title).to.equal(title);
     expect(createdTask.description).to.equal(description);
+    expect(createdTask.dificulty).to.equal(dificulty);
     expect(createdTask.pointsReward).to.equal(points_reward);
     expect(createdTask.isActive).to.equal(isActive);
 

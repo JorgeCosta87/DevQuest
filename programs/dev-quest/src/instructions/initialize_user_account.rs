@@ -18,12 +18,18 @@ pub struct InitializeUser<'info> {
 }
 
 impl<'info> InitializeUser<'info> {
-    pub fn initialize_user(&mut self, bumps: &InitializeUserBumps) -> Result<()> {
+    pub fn initialize_user(
+        &mut self, 
+        name: String,
+        bio: String,
+        github_username: String,
+        bumps: &InitializeUserBumps
+    ) -> Result<()> {
         self.user_account.set_inner(UserAccount {
             owner: self.user.key(),
-            name: String::new(),
-            bio: String::new(),
-            github_username: String::new(),
+            name: name,
+            bio: bio,
+            github_username: github_username,
             total_points: 0,
             project_counter: 0,
             bump: bumps.user_account,
