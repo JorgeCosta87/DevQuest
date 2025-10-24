@@ -2,10 +2,9 @@
 
 ### Key Features
 
-- **Wallet Authentication** - Secure login using Solana wallets
+- **Task Management** - Admin-controlled task creation
 - **Point System** - Earn verifiable points for task completion
 - **Leaderboard** - Compete with developers globally
-- **Task Management** - Admin-controlled task creation
 - **Project Showcase** - Display your best work
 - **On-Chain Records** - All data immutable on blockchain
 
@@ -14,6 +13,7 @@
 - **Framework**: Anchor (Rust)
 - **Frontend**: Next.js + TypeScript
 - **Wallet**: Solana Wallet Adapter
+- **Anchor SDK**: @coral-xyz/anchor
 - **RPC**: Solana Web3.js
 
 ## User Stories
@@ -96,7 +96,7 @@ So that I can earn points
 
 ---
 
-#### US-2.3: Toggle Task Status (Admin)
+#### US-2.3: Update Task Status (Admin)
 ```
 As an admin
 I want to activate or deactivate tasks
@@ -104,7 +104,7 @@ So that I can control which tasks are available
 ```
 
 **Acceptance Criteria:**
-- Only admin wallet can toggle task status
+- Only admin wallet can update task status
 - Inactive tasks cannot accept new submissions
 - Existing submissions remain valid
 - Status change reflected immediately
@@ -118,7 +118,7 @@ So that I can control which tasks are available
 
 #### US-3.1: Add Project
 ```
-As a developer
+As a user
 I want to showcase my projects with name, description, repo link, and website
 So that others can see my best work
 ```
@@ -138,7 +138,7 @@ So that others can see my best work
 
 #### US-4.1: View Leaderboard
 ```
-As a developer
+As a user
 I want to see top performers ranked by points
 So that I can track my progress against others
 ```
