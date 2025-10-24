@@ -1,9 +1,15 @@
+pub mod add_project;
 pub mod create_task;
 pub mod initialize_config;
 pub mod initialize_user_account;
 pub mod submit_task;
+pub mod update_task_status;
+pub mod update_user_account;
 
+pub use add_project::*;
 pub use create_task::*;
 pub use initialize_config::*;
 pub use initialize_user_account::*;
 pub use submit_task::*;
+pub use update_task_status::*;
+pub use update_user_account::*;

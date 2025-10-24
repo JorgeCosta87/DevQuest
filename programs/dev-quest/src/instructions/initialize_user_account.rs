@@ -19,11 +19,11 @@ pub struct InitializeUser<'info> {
 
 impl<'info> InitializeUser<'info> {
     pub fn initialize_user(
-        &mut self, 
+        &mut self,
         name: String,
         bio: String,
         github_username: String,
-        bumps: &InitializeUserBumps
+        bumps: &InitializeUserBumps,
     ) -> Result<()> {
         self.user_account.set_inner(UserAccount {
             owner: self.user.key(),

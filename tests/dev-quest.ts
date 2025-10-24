@@ -123,7 +123,7 @@ describe("dev-quest", () => {
     console.log("Task created: ", tx);
 
     expect(submitedTask.taskId.toNumber()).to.equal(0);
-    expect(submitedTask.repoUrl).to.equal(repo_url);
+    expect(submitedTask.repoName).to.equal(repo_url);
   })
 
 });

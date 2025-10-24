@@ -5,8 +5,8 @@ use anchor_lang::prelude::*;
 pub struct TaskSubmission {
     pub user: Pubkey,
     pub task_id: u64,
-    #[max_len(200)]
-    pub repo_url: String,
+    #[max_len(100)]
+    pub repo_name: String,
     pub submitted_at: i64,
     pub bump: u8,
 }
