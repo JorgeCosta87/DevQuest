@@ -5,5 +5,5 @@ use anchor_lang::prelude::*;
 pub struct Config {
     pub admin: Pubkey,
     pub task_counter: u64,
-    pub bump: u8
+    pub bump: u8,
 }
