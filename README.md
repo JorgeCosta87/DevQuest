@@ -13,52 +13,21 @@ DevQuest is a gamified platform that allows developers to:
 
 **Program ID (Devnet):** `G6kyX8C369qABor4ZVXDFXneZw9jqDpbfB79imLgEGfA`
 
-## Architecture
+## Architecture Overiew
 
-```
-Frontend (React) → Solana RPC → Anchor Program
-```
+![System Overview](docs/diagrams/overview.png)
 
-**Key Components:**
-- **Frontend**: React with Solana wallet integration
-- **Backend**: Anchor program on Solana blockchain
-- **Storage**: On-chain account data using PDAs
 
-## Features
+## Documentation
 
-### User Features
-- **Wallet Authentication**: Connect with a wallet
-- **Profile Management**: Update name, bio, GitHub username
-- **Task Completion**: Submit GitHub repos for tasks
-- **Point System**: Earn points for completed tasks
-- **Project Showcase**: Showcase your projects
+**[Specifications](docs/specifications.md)** - Complete project specifications including user stories, data models, technical requirements, and implementation details.
 
-### Admin Features
-- **Task Creation**: Create new tasks with points rewards
+**Sequence Diagrams:**
+- **[User Registration Flow](docs/diagrams/user_registration.png)**
+- **[Task Submission Process](docs/diagrams/task_submission.png)**
+- **[Admin Task Creation](docs/diagrams/admin_create_task.png)**
 
-## Technical Stack
 
-- **Blockchain**: Solana
-- **Framework**: Anchor (Rust)
-- **Frontend**: React + TypeScript
-- **Wallet**: Solana Wallet Adapter
-- **RPC**: Solana Web3.js
-
-## Project Structure
-
-```
-dev-quest/
-├── programs/
-│   └── dev-quest/
-│       ├── src/
-│       │   ├── lib.rs
-│       │   ├── instructions/
-│       │   ├── state/
-│       │   └── errors.rs
-├── tests/
-   └── dev-quest.ts
-
-```
 
 ## Getting Started
 
@@ -77,10 +46,6 @@ This installs:
 - Node.js
 - Yarn
 
-Verify installation:
-```bash
-rustc --version && solana --version && anchor --version && node --version && yarn --version
-```
 
 ### Installation
 
@@ -110,9 +75,12 @@ anchor test
 | Instruction | Description | Access |
 |-------------|-------------|---------|
 | `initialize_config` | Setup program configuration | Admin only |
-| `initialize_user` | Create user profile | Public |
-| `create_task` | Add new task | Admin only |
-| `submit_task` | Submit task completion | Public |
+| `initialize_user` | Create user profile with name, bio, GitHub | Public |
+| `update_user` | Update user profile information | User only |
+| `create_task` | Add new task with difficulty and points | Admin only |
+| `submit_task` | Submit task completion with repo URL | Public |
+| `update_task_status` | Activate/deactivate tasks | Admin only |
+| `add_project` | Add project to showcase | Public |
 
 ## Security Features
 
