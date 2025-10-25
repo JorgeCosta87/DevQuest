@@ -1,5 +1,5 @@
+use crate::state::{Project, UserAccount};
 use anchor_lang::prelude::*;
-use crate::state::{UserAccount, Project};
 
 #[derive(Accounts)]
 #[instruction(project_id: u8)]

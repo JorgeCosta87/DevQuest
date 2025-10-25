@@ -67,7 +67,7 @@ pub mod dev_quest {
         ctx: Context<UpdateUserAccount>,
         name: Option<String>,
         bio: Option<String>,
-        github_username: Option<String>
+        github_username: Option<String>,
     ) -> Result<()> {
         ctx.accounts.update_user_account(name, bio, github_username)
     }
@@ -75,17 +75,11 @@ pub mod dev_quest {
         ctx.accounts.remove_user_account()
     }
 
-    pub fn remove_task_submission(
-        ctx: Context<RemoveTaskSubmission>, 
-        task_id: u64
-    ) -> Result<()> {
+    pub fn remove_task_submission(ctx: Context<RemoveTaskSubmission>, task_id: u64) -> Result<()> {
         ctx.accounts.remove_task_submission()
     }
-    
-    pub fn remove_project(
-        ctx: Context<RemoveProject>, 
-        project_id: u8
-    ) -> Result<()> {
+
+    pub fn remove_project(ctx: Context<RemoveProject>, project_id: u8) -> Result<()> {
         ctx.accounts.remove_project()
     }
 }

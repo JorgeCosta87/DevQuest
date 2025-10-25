@@ -13,5 +13,4 @@ pub struct UserAccount {
     pub total_points: u64,
     pub project_counter: u8,
     pub bump: u8,
-
 }

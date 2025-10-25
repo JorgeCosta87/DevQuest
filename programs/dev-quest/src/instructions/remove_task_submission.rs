@@ -1,5 +1,5 @@
+use crate::state::{TaskSubmission, UserAccount};
 use anchor_lang::prelude::*;
-use crate::state::{UserAccount, TaskSubmission};
 
 #[derive(Accounts)]
 #[instruction(task_id: u64)]

@@ -1,5 +1,5 @@
+use crate::state::UserAccount;
 use anchor_lang::prelude::*;
-use crate::state::{UserAccount};
 
 #[derive(Accounts)]
 pub struct RemoveUserAccount<'info> {

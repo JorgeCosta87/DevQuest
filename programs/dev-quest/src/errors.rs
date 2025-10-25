@@ -24,5 +24,4 @@ pub enum ErrorCode {
     TooManyProjects,
     #[msg("Bio to long")]
     BioTooLong,
-    
 }
