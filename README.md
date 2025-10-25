@@ -81,6 +81,9 @@ anchor test
 | `submit_task` | Submit task completion with repo URL | Public |
 | `update_task_status` | Activate/deactivate tasks | Admin only |
 | `add_project` | Add project to showcase | Public |
+| `remove_user_account` | Delete user account | User only |
+| `remove_task_submission` | Delete specific task submission | User only |
+| `remove_project` | Delete specific project | User only |
 
 ## Security Features
 
